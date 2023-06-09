@@ -3,6 +3,12 @@ from PIL import Image
 
 images = []
 
+cur_dir = os.getcwd()
+new_dir = "cropped"
+path = os.path.join(cur_dir, new_dir)
+if not os.path.exists(path):
+    os.mkdir(path)
+
 for root, dirs, files in os.walk("."):  
     for filename in files:
         if filename[filename.find('.') + 1 :] == 'png':
