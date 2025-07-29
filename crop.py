@@ -11,14 +11,15 @@ if not os.path.exists(path):
 
 for root, dirs, files in os.walk("."):  
     for filename in files:
-        if filename[filename.find('.') + 1 :] == 'png':
+        if filename[filename.find('p.') + 2 :] == 'png':            
             try:
                 im = Image.open(filename)
             except FileNotFoundError:
                 break
-            just_name = filename[0 : filename.find('.')]
+            just_name = filename[0 : filename.find('.png')]
             print(just_name)
-            im_crop = im.crop((200, 0, 1329, 484))
+            # left, top, right, bottom
+            im_crop = im.crop((210, 150, 1860, 770))
             #im_crop.show()
             full_name = 'cropped/' + just_name + '_.png'
             images.append(im_crop)
