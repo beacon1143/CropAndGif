@@ -11,7 +11,7 @@ if not os.path.exists(path):
 
 for root, dirs, files in os.walk("."):  
     for filename in files:
-        if filename[filename.find('p.') + 2 :] == 'png':            
+        if filename[filename.find('.p') :] == '.png':
             try:
                 im = Image.open(filename)
             except FileNotFoundError:
